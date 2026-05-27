@@ -1,0 +1,66 @@
+{
+  "name": "irazor-ai",
+  "version": "4.0.0",
+  "description": "IRazor AI — Powered by IQD1R Model",
+  "main": "main.js",
+  "scripts": {
+    "start":        "electron .",
+    "build:win":    "electron-builder --win",
+    "build:mac":    "electron-builder --mac",
+    "build:linux":  "electron-builder --linux",
+    "build:all":    "electron-builder --win --mac --linux"
+  },
+  "build": {
+    "appId":       "com.iraq.irazor.ai",
+    "productName": "IRazor AI",
+    "copyright":   "IRAQ Team",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/bundle.enc"
+    ],
+
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64", "ia32"] },
+        { "target": "portable", "arch": ["x64"] }
+      ],
+      "icon": "app/icon.ico"
+    },
+
+    "mac": {
+      "target": [
+        { "target": "dmg", "arch": ["x64", "arm64"] }
+      ],
+      "icon": "app/icon.icns",
+      "category": "public.app-category.developer-tools"
+    },
+
+    "linux": {
+      "target": [
+        { "target": "AppImage", "arch": ["x64"] },
+        { "target": "deb",      "arch": ["x64"] }
+      ],
+      "icon": "app/icon.png",
+      "category": "Development"
+    },
+
+    "nsis": {
+      "oneClick":           false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon":      "app/icon.ico",
+      "uninstallerIcon":    "app/icon.ico",
+      "installerHeaderIcon":"app/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName":       "IRazor AI"
+    }
+  },
+  "devDependencies": {
+    "electron":         "^29.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}
