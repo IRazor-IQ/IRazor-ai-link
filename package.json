@@ -3,12 +3,16 @@
   "version": "4.0.0",
   "description": "IRazor AI — Powered by IQD1R Model",
   "main": "main.js",
+  "author": {
+    "name": "IRAQ Team",
+    "email": "irazor@iraq.ai"
+  },
   "scripts": {
     "start":        "electron .",
-    "build:win":    "electron-builder --win",
-    "build:mac":    "electron-builder --mac",
-    "build:linux":  "electron-builder --linux",
-    "build:all":    "electron-builder --win --mac --linux"
+    "build:win":    "electron-builder --win --publish never",
+    "build:mac":    "electron-builder --mac --publish never",
+    "build:linux":  "electron-builder --linux --publish never",
+    "build:all":    "electron-builder --win --mac --linux --publish never"
   },
   "build": {
     "appId":       "com.iraq.irazor.ai",
@@ -25,7 +29,7 @@
 
     "win": {
       "target": [
-        { "target": "nsis", "arch": ["x64", "ia32"] },
+        { "target": "nsis",     "arch": ["x64", "ia32"] },
         { "target": "portable", "arch": ["x64"] }
       ]
     },
@@ -39,8 +43,7 @@
 
     "linux": {
       "target": [
-        { "target": "AppImage", "arch": ["x64"] },
-        { "target": "deb",      "arch": ["x64"] }
+        { "target": "AppImage", "arch": ["x64"] }
       ],
       "category": "Development"
     },
@@ -50,7 +53,7 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName":       "IRazor AI"
+      "shortcutName": "IRazor AI"
     }
   },
   "devDependencies": {
